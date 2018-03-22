@@ -2,7 +2,7 @@
 #include <cmath>
 using namespace std;
 
-int num_piles(int n, int m, int p) {
+int pile_split(int n, int m, int p) {
   if (n == 0)
     return 0;
   if (n <= m)
@@ -43,7 +43,7 @@ int num_piles(int n, int m, int p) {
   }
   
   for (int i = 0; i < p; i++)
-    retval += num_piles(arr[i], m, p);
+    retval += pile_split(arr[i], m, p);
   
   return retval;
 }
@@ -59,7 +59,7 @@ int main() {
   cin >> input;
   int p = stoi(input);
   
-  cout << num_piles(n, m, p);
+  cout << pile_split(n, m, p);
 
   return 0;
 }
